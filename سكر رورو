@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>رورو السكر — مفاجأة</title>
+  <style>
+    body{
+      font-family:"Segoe UI", Tahoma, Arial, sans-serif;
+      background:linear-gradient(135deg,#fffaf6 0%, #fff0f5 100%);
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; direction:rtl;
+    }
+    .wrap{
+      width:900px; max-width:94%; background:rgba(255,255,255,0.95); padding:28px; border-radius:14px;
+      box-shadow:0 12px 40px rgba(0,0,0,0.08);
+    }
+    header{ text-align:center; margin-bottom:18px }
+    h1{ margin:0; color:#b33b6a }
+    .content{
+      font-size:20px; color:#333; line-height:1.9;
+      white-space:pre-wrap;
+    }
+    .back{ margin-top:18px; text-align:center }
+    .btn{ padding:10px 14px; border-radius:10px; border:0; cursor:pointer; margin:0 6px }
+    .logout{ background:#e6cbd6; }
+    .home{ background:#b33b6a; color:#fff; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <h1>مفاجأة — رورو السكر</h1>
+      <p style="color:#666;margin-top:6px">ده المكان اللي معمول ليكي يا أجمل رورو ❤️</p>
+    </header>
+
+    <section class="content">
+      <div style="text-align:center; font-size:20px; line-height:1.9; color:#b33b6a;">
+
+        <div style="font-size:34px; margin-bottom:10px;">💗🌸 رورو السكر 🌸💗</div>
+
+        <div style="font-size:26px; margin:6px 0;">❤️ بحبــــــــك ❤️</div>
+
+        بحبك وبعشقك ومقدرش استغنى عنك يا رورو…  
+        انتي كل حياتي، وعمري ما هسيبك يا دكتورتي الجميلة.  
+
+        <br>
+
+        <span style="font-size:22px; color:#c2185b;">وبجد… حرفيًا…</span><br>
+        <span style="font-size:24px;">بعشقككك أوووي ♥️✨</span>
+
+        <br><br>
+
+        ولو فضلت أتكلم عنك؟  
+        <strong style="font-size:20px; color:#8b004e;">مش هسكت والله يا رورو…</strong><br>
+        إنتي أحلى حاجة في حياتي ومحدش بياخد مكانك أبداً.  
+
+        <br><br>
+
+        <div style="font-size:30px; margin-top:10px;">🌹💞🌹</div>
+
+      </div>
+    </section>
+
+    <!-- مشغل الأغنية — مخفي -->
+    <audio id="romanticSong" autoplay hidden>
+      <source src="https://dl.sndup.net/3t4p/TamerHosnyRomantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+      const song = document.getElementById("romanticSong");
+      song.volume = 0;   // يبدأ من غير صوت علشان الموبايل يسمح
+      setTimeout(() => {
+        song.volume = 1; // يعلي الصوت تلقائي
+      }, 1500);
+    </script>
+
+    <div class="back">
+      <button class="btn logout" id="lockBtn">قفل وارجع</button>
+      <button class="btn home" id="homeBtn">رجوع للدخول</button>
+    </div>
+
+  </div>
+
+  <script>
+    const ok = sessionStorage.getItem("qaloub_secret_unlocked");
+    if(!ok){
+      alert("لازم تدخلي الباسورد الأول.");
+      window.location.href = "index.html";
+    }
+
+    document.getElementById("homeBtn").addEventListener("click", ()=>{
+      window.location.href = "index.html";
+    });
+    document.getElementById("lockBtn").addEventListener("click", ()=>{
+      sessionStorage.removeItem("qaloub_secret_unlocked");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
